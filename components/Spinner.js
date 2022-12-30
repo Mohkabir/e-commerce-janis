@@ -6,7 +6,7 @@ function Spinner() {
             <Oval
                 height={80}
                 width={80}
-                color="#FF7D1B"
+                color="#0277ED"
                 wrapperStyle={{}}
                 wrapperClass=""
                 visible={true}

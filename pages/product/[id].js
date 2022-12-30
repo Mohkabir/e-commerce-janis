@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, getProduct, quantityChange } from '../../redux/actions'
 import Image from 'next/image'
-import { AiFillStar, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiFillStar, AiOutlineArrowLeft, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsFillShareFill } from 'react-icons/bs'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
@@ -42,9 +42,9 @@ const ProductItem = () => {
     <>
       <Nav />
       <main className="w-full my-10 mx-auto max-w-[400px] md:max-w-[1200px]">
-        <div className="btn">
+        <div className="btn pl-5">
           <Link href="/">
-            <button className='py-3 px-6 mb-4 rounded-md bg-gray-600 text-white'>Back</button>
+            <button className='flex gap-1 items-center py-3 px-4 mb-4 rounded-md bg-gray-600 text-white'><AiOutlineArrowLeft/> <span>Back</span></button>
           </Link>
         </div>
 

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { AiOutlineArrowDown, AiOutlineArrowRight } from 'react-icons/ai'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
 import { convertString } from '../components/ProductItem'
@@ -84,7 +85,7 @@ const Checkout = () => {
 
 
                             <div className='flex justify-between py-5 border bg-[#fafafa] border-[#e6e6e6] px-3 lg:bg-inherit lg:border-0 lg:py-7'>
-                                <p>Total</p>
+                                <p className='flex items-center gap-2'><span>Total</span> {!cartView ? <AiOutlineArrowRight/> : <AiOutlineArrowDown/> }</p>
 
                                 <h3 className='mr-3 text-right text-gray-400'>
                                     <span>NGN </span>
