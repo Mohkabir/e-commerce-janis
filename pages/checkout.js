@@ -13,10 +13,15 @@ const Checkout = () => {
     const { carts } = useSelector(state => state.productReducers)
 
     const total = carts?.map((x) => x.price * x.qtn)
+
     useEffect(() => {
         dispatch(getCart())
     }, [dispatch])
 
+    const checkout = (e) => {
+        e.preventDefault()
+        console.log(carts , 'carts')
+    }
     return (
         <>
             <section>
@@ -54,9 +59,11 @@ const Checkout = () => {
                             <Link href='/'>
                                 <p><span className='text-[#0479b8]'>{"<"}</span> Return to Cart</p>
                             </Link>
-                            <button className='bg-[#0087d2] rounded-md  shadow-lg text-white p-5'>
+
+                            <button onClick={checkout} className='bg-[#0087d2] rounded-md  shadow-lg text-white p-5'>
                                 Continue to shipping
                             </button>
+
                         </div>
                     </form>
                     <div className='flex flex-col lg:w-[40%] lg:flex-col-reverse'>
@@ -85,8 +92,6 @@ const Checkout = () => {
                                 </h3>
 
                             </div>
-
-
                         </div>
 
                         <div className="flex flex-col">
@@ -94,10 +99,9 @@ const Checkout = () => {
                                 <div className={`${!cartView && "hidden"} w-[90%] mx-auto py-6 flex items-center justify-between font-semibold lg:flex`} key={cart.id}>
                                     <div className='flex relative items-center gap-3 justify-between '>
                                         <div className='relative inline-block'>
-                                            <Image className=' w-[50px] rounded-md p-1 border border-[#0000001a]' src={cart.img.src} alt='pro-imgage' width={100} height={100} />
+                                            <Image className=' w-[60px] rounded-md border border-[#0000001a]' src={cart.img.src} alt='pro-imgage' width={100} height={100} />
 
                                             <span className='absolute -top-3 bg-[#808080] px-1 rounded-full h-5 leading-5 text-white right-0'>{cart.qtn}</span>
-
                                         </div>
 
                                         <p className=' text-sm'> {cart.title}</p>

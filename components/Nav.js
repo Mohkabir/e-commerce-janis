@@ -56,7 +56,7 @@ const Nav = () => {
                                     <div className='p-4' key={cart.id}>
                                         <div className='flex items-center justify-between gap-3 text-gray-400 w-full'>
 
-                                            <Image className='rounded w-[30px]' src={cart.img.src} alt='pro-imgage' width={100} height={100} />
+                                            <Image className='rounded w-[70px]' src={cart.img.src} alt='pro-imgage' width={100} height={100} />
 
                                             <div className="flex-1 text-sm">
                                                 <p>{cart.title}</p>

@@ -1,92 +1,13 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 
-
-import productImg1 from '../assets/img/product1.jpeg'
-
 import Spinner from '../components/Spinner';
 import Main from "../components/Main"
 import Meta from "../components/Meta"
 import { getProducts } from "../redux/actions"
 import Nav from "../components/Nav";
+import { staticProducts } from "../data/products"
 
-
-export const staticProducts = [
-  {
-    id: 1,
-    img: productImg1,
-    title: "Whey Proteing isolate",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
-    author: "Muscleblaze",
-    star: 4.5,
-    reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
-    discount: 29,
-    qtn: 1
-  },
-  {
-    id: 2,
-    img: productImg1,
-    title: "Whey Proteing isolate",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
-    author: "Muscleblaze",
-    star: 4.5,
-    reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
-    discount: 29,
-    qtn: 1
-  }, {
-    id: 3,
-    img: productImg1,
-    title: "Whey Proteing isolate",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
-    author: "Muscleblaze",
-    star: 4.5,
-    reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
-    discount: 29,
-    qtn: 1
-  },{
-    id: 4,
-    img: productImg1,
-    title: "Whey Proteing isolate",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
-    author: "Muscleblaze",
-    star: 4.5,
-    reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
-    discount: 29,
-    qtn: 1
-  },{
-    id: 5,
-    img: productImg1,
-    title: "Whey Proteing isolate",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
-    author: "Muscleblaze",
-    star: 4.5,
-    reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
-    discount: 29,
-    qtn: 1
-  },{
-    id: 6,
-    img: productImg1,
-    title: "Whey Proteing isolate",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
-    author: "Muscleblaze",
-    star: 4.5,
-    reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
-    discount: 29,
-    qtn: 1
-  },
-]
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -99,7 +20,6 @@ export default function Home() {
 
     const fecthProducts = () => {
       try {
-        // const pro = staticProducts?.map((cart) => cart.id ? { ...cart, qtn: 1 } : cart)
         if (mount) {
           dispatch(getProducts(staticProducts))
           setIsLoading(false)
@@ -121,11 +41,12 @@ export default function Home() {
   }
 
   return (
-    <>
-      <Nav/>
+
+  <div className="bg-[#f5f5f5]">
+      <Nav />
       <Meta />
       <Main />
-    </>
+    </div>
   )
 }
 

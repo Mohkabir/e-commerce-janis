@@ -51,7 +51,7 @@ const ProductItem = () => {
         <div className='md:flex gap-5 justify-between'>
           <div className="md:w-[50%] bg-[#f8f8f8] shadow-sm mx-auto max-w-xl flex justify-center">
             <Image src={product.img} alt="product" width={100} height={100}
-              layout="fill" priority className="block my-20 w-[200px] md:rounded-xl" />
+              layout="fill" priority className="block my-20 w-[400px] md:rounded-xl" />
           </div>
 
           <div className="flex flex-col gap-2 md:w-[50%] py-5 px-3">

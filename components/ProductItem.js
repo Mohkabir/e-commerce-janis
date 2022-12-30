@@ -16,12 +16,10 @@ const ProductItem = ({ product }) => {
 
   const checkCart = carts?.find((cart) => product.id === cart.id)
 
-  console.log(carts, 'checkCartcheckCartcheckCart')
-
   return (
-    <main className="flex flex-col max-w-xs mx-auto shadow-md md:w-[30%] md:mx-auto overflow-hidden bg-white">
+    <main className="flex flex-col justify-between max-w-xs mx-auto shadow-md md:w-[30%] md:mx-auto overflow-hidden bg-white">
       <div className="flex justify-center p-10 border border-t-0 border-x-0 border-b-[#e8e8e8] w-[90%] mx-auto">
-        <Image src={product.img} className="w-[100px]" alt="product" width={300} height={300} />
+        <Image src={product.img} className="w-[200px]" alt="product" width={300} height={300} />
       </div>
 
       <div className="py-5 px-3  rounded-md">
