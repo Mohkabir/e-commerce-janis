@@ -32,15 +32,15 @@ const productReducers = (state = initialState, { payload, type }) => {
 
         case 'ADD_TO_CART':
             const exist = state.carts?.find((x) => x.id === payload.id)
+            const pro = payload
 
-            const cartItems = state.carts?.map((cart) => cart.id === payload.id ? { ...payload} : cart)
+            const cartItems = state.carts?.map((cart) => cart.id === payload.id ? { ...pro, inCart: true } : cart)
 
             if (exist) {
                 localStorage.setItem("cart", JSON.stringify(cartItems))
                 return { ...state, carts: cartItems }
-            } 
+            }
             else {
-                const pro = payload
                 localStorage.setItem("cart", JSON.stringify([...state.carts, { ...pro, inCart: true }]))
                 return {
                     ...state, carts: [...state.carts, { ...pro, inCart: true, }]

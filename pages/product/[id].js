@@ -38,8 +38,6 @@ const ProductItem = () => {
 
   const checkCart = carts?.find((cart) => product.id === cart.id)
 
-
-
   return (
     <>
       <Nav />
@@ -106,25 +104,13 @@ const ProductItem = () => {
                 <button className="text-gray-500" onClick={() => addToQuantity('INCREMENT', product.id)}>+</button>
               </div>
 
-              {!checkCart?.inCart ?
-                (
-                  <Link href="/">
-                    <button
-                      onClick={handleAddCart}
-                      className=' bg-blue text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1'
-                    >
-                      <AiOutlineShoppingCart className="inline mb-1 mr-1" /> Add To Cart</button>
-                  </Link>
-                ) : (
-                  <Link href="/">
-                    <button
-                      onClick={handleAddCart}
-                      className=' bg-blue text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1'
-                    >
-                      <AiOutlineShoppingCart className="inline mb-1 mr-1" />change cart</button>
-                  </Link>
-                )
-              }
+              <Link href="/">
+                <button
+                  onClick={handleAddCart}
+                  className=' bg-blue text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1'
+                >
+                  <AiOutlineShoppingCart className="inline mb-1 mr-1" />{!checkCart?.inCart ? "Add To Cart" : "change cart"}</button>
+              </Link>
 
             </div>
           </div>

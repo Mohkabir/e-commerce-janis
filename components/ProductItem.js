@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
 
   const checkCart = carts?.find((cart) => product.id === cart.id)
 
-  console.log(checkCart , 'checkCartcheckCartcheckCart')
+  console.log(carts, 'checkCartcheckCartcheckCart')
 
   return (
     <main className="flex flex-col max-w-xs mx-auto shadow-md md:w-[30%] md:mx-auto overflow-hidden bg-white">
