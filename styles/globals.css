@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-list li {
+  @apply text-black pt-5 capitalize md:pt-0 md:px-4;
+}
+
+button:has(svg):hover,
+button:has(i):hover {
+  background-color: #ebdfd6;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    overflow-x: hidden;
+    background-color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  top: 25%;
+  color: #cd691d;
+}
