@@ -67,7 +67,7 @@ const ProductItem = () => {
             <p>By <span className='text-[#22B7B2] font-semibold'>{product.author} {">"}</span></p>
           </div>
 
-          <div className="flex gap-3 text-xs items-center justify-between w-[65%]">
+          <div className="flex gap-3 text-xs items-center justify-between md:w-[65%]">
             <div className="flex gap-2">
               <div className="flex text-[#26ACAD] text-xl">
                 <AiFillStar />
