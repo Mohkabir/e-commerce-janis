@@ -24,7 +24,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
     <Provider store={store}>
-      <Nav/>
       <Component {...pageProps} />
     </Provider>
   )

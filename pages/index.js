@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 
-import axios from 'axios';
 
 import productImg1 from '../assets/img/product1.jpeg'
 
 import Spinner from '../components/Spinner';
 import Main from "../components/Main"
 import Meta from "../components/Meta"
-import Nav from "../components/Nav"
 import { getProducts } from "../redux/actions"
+import Nav from "../components/Nav";
 
 
-export const products = [
+export const staticProducts = [
   {
     id: 1,
     img: productImg1,
@@ -24,6 +23,7 @@ export const products = [
     formerPrice: 4000,
     price: 3499,
     discount: 29,
+    qtn: 1
   },
   {
     id: 2,
@@ -36,6 +36,7 @@ export const products = [
     formerPrice: 4000,
     price: 3499,
     discount: 29,
+    qtn: 1
   }, {
     id: 3,
     img: productImg1,
@@ -47,6 +48,7 @@ export const products = [
     formerPrice: 4000,
     price: 3499,
     discount: 29,
+    qtn: 1
   },{
     id: 4,
     img: productImg1,
@@ -58,6 +60,7 @@ export const products = [
     formerPrice: 4000,
     price: 3499,
     discount: 29,
+    qtn: 1
   },{
     id: 5,
     img: productImg1,
@@ -69,8 +72,9 @@ export const products = [
     formerPrice: 4000,
     price: 3499,
     discount: 29,
+    qtn: 1
   },{
-    iz: 6,
+    id: 6,
     img: productImg1,
     title: "Whey Proteing isolate",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
@@ -80,6 +84,7 @@ export const products = [
     formerPrice: 4000,
     price: 3499,
     discount: 29,
+    qtn: 1
   },
 ]
 
@@ -94,9 +99,9 @@ export default function Home() {
 
     const fecthProducts = () => {
       try {
-        const pro = products?.map((cart) => cart.id ? { ...cart, qtn: 1 } : cart)
+        // const pro = staticProducts?.map((cart) => cart.id ? { ...cart, qtn: 1 } : cart)
         if (mount) {
-          dispatch(getProducts(pro))
+          dispatch(getProducts(staticProducts))
           setIsLoading(false)
         }
       } catch (error) {
@@ -117,6 +122,7 @@ export default function Home() {
 
   return (
     <>
+      <Nav/>
       <Meta />
       <Main />
     </>
