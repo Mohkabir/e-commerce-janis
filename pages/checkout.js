@@ -1,27 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiOutlineArrowDown, AiOutlineArrowRight } from 'react-icons/ai'
 import { RiDeleteBin5Line } from 'react-icons/ri'
-import { useDispatch, useSelector } from 'react-redux'
 import { convertString } from '../components/ProductItem'
-import { getCart } from '../redux/actions'
+import productContext from '../context/productContext'
 
 const Checkout = () => {
-    const dispatch = useDispatch()
     const [cartView, setCartView] = useState(false)
 
-    const { carts } = useSelector(state => state.productReducers)
+    const { cart } = useContext(productContext)
 
-    const total = carts?.map((x) => x.price * x.qtn)
-
-    useEffect(() => {
-        dispatch(getCart())
-    }, [dispatch])
+    const total = cart?.map((x) => x.price * x.qtn)
 
     const checkout = (e) => {
         e.preventDefault()
-        console.log(carts , 'carts')
     }
     return (
         <>
@@ -85,7 +78,7 @@ const Checkout = () => {
 
 
                             <div className='flex justify-between py-5 border bg-[#fafafa] border-[#e6e6e6] px-3 lg:bg-inherit lg:border-0 lg:py-7'>
-                                <p className='flex items-center gap-2'><span>Total</span> {!cartView ? <AiOutlineArrowRight/> : <AiOutlineArrowDown/> }</p>
+                                <p className='flex items-center gap-2'><span>Total</span> {!cartView ? <AiOutlineArrowRight /> : <AiOutlineArrowDown />}</p>
 
                                 <h3 className='mr-3 text-right text-gray-400'>
                                     <span>NGN </span>
@@ -96,7 +89,7 @@ const Checkout = () => {
                         </div>
 
                         <div className="flex flex-col">
-                            {carts?.map((cart) => (
+                            {cart?.map((cart) => (
                                 <div className={`${!cartView && "hidden"} w-[90%] mx-auto py-6 flex items-center justify-between font-semibold lg:flex`} key={cart.id}>
                                     <div className='flex relative items-center gap-3 justify-between '>
                                         <div className='relative inline-block'>

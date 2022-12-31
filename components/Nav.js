@@ -1,31 +1,23 @@
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
 import { RiDeleteBin5Line } from "react-icons/ri"
 import { FaTimes } from "react-icons/fa"
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteFromCart, getCart } from '../redux/actions'
-
 import { convertString } from './ProductItem'
 import Link from 'next/link'
+import productContext from '../context/productContext'
 
 const Nav = () => {
     const [viewCart, setViewCart] = useState(false)
 
-    const dispatch = useDispatch()
+    const { cart, setCart } = useContext(productContext)
 
-    const { carts } = useSelector(state => state.productReducers)
+    const total = cart?.map((x) => x.price * x.qtn)
 
-    const total = carts?.map((x) => x.price * x.qtn)
-
-    const handleDelete = (cart) => {
-        dispatch(deleteFromCart(cart))
+    const handleDelete = (id) => {
+        const filterCart = cart.filter((x) => x.id !== id)
+        setCart(filterCart)
     }
-
-    useEffect(() => {
-        dispatch(getCart())
-    }, [dispatch])
-
 
     return (
         <nav className='w-full shadow-md'>
@@ -38,7 +30,7 @@ const Nav = () => {
                     <div className='flex flex-1 items-center justify-end gap-3 md:w-[10%]'>
                         <div className='relative cursor-pointer flex items-center' onClick={() => setViewCart(!viewCart)}>
                             <AiOutlineShoppingCart className='text-2xl font-extrabold' />
-                            <i className='absolute text-sm text-white bottom-3 left-2 b bg-blue  leading-4 w-6 h-4 text-center rounded-full'>{carts.length}</i>
+                            <i className='absolute text-sm text-white bottom-3 left-2 b bg-blue  leading-4 w-6 h-4 text-center rounded-full'>{cart?.length}</i>
                         </div>
                     </div>
                 </div>
@@ -48,11 +40,10 @@ const Nav = () => {
                     <div>
                         <h4 className='text-black p-5 border-gray-200 border-b font-bold text-md'>Cart</h4>
                     </div>
-
                     {
-                        carts.length > 0 ? (
+                        cart?.length > 0 || cart === undefined ? (
                             <>
-                                {carts?.map((cart, i) => (
+                                {cart?.map((cart, i) => (
                                     <div className='p-4' key={cart.id}>
                                         <div className='flex items-center justify-between gap-3 text-gray-400 w-full'>
 
@@ -68,7 +59,7 @@ const Nav = () => {
                                                 </p>
                                             </div>
 
-                                            <i className='text-xl cursor-pointer' onClick={() => handleDelete(cart)}><RiDeleteBin5Line /></i>
+                                            <i className='text-xl cursor-pointer' onClick={() => handleDelete(cart.id)}><RiDeleteBin5Line /></i>
                                         </div>
                                     </div>
                                 ))}
@@ -80,10 +71,11 @@ const Nav = () => {
                             </div>
                         )
                     }
+
                     <div className='text-center'>
 
                         {
-                            carts.length > 0 ? (
+                            cart?.length > 0 || cart === undefined ? (
                                 <Link href="/checkout" >
                                     <button
                                         className="bg-blue text-white my-4 w-11/12 p-3 rounded-lg  font-bold text-sm md:text-md"

@@ -1,42 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { addToCart, getProduct, quantityChange } from '../../redux/actions'
 import Image from 'next/image'
 import { AiFillStar, AiOutlineArrowLeft, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsFillShareFill } from 'react-icons/bs'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
 import { convertString } from '../../components/ProductItem'
+import productContext from '../../context/productContext'
+import { staticProducts } from '../../data/products'
 
 
 const ProductItem = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter()
   const { id } = router.query
-  const dispatch = useDispatch()
 
-  const { product, carts } = useSelector((state) => state.productReducers)
+  const { product,getProduct,cart,addToCart, quantityChange } = useContext(productContext)
 
   useEffect(() => {
-    dispatch(getProduct(id))
-  }, [id, dispatch])
+    getProduct(id)
+  }, [id])
 
   const addToQuantity = (type, product) => {
-    return dispatch(quantityChange(type, product))
-  }
-  const handleAddCart = () => {
-    dispatch(addToCart(product))
+    quantityChange(type, product)
   }
 
   if (product === undefined) {
     return <h3>Loading</h3>
   }
 
-
-  const checkCart = carts?.find((cart) => product.id === cart.id)
+  const checkCart = cart?.find((cart) => product.id === cart.id)
 
   return (
     <>
@@ -44,7 +38,7 @@ const ProductItem = () => {
       <main className="w-full my-10 mx-auto max-w-[400px] md:max-w-[1200px]">
         <div className="btn pl-5">
           <Link href="/">
-            <button className='flex gap-1 items-center py-3 px-4 mb-4 rounded-md bg-gray-600 text-white'><AiOutlineArrowLeft/> <span>Back</span></button>
+            <button className='flex gap-1 items-center py-3 px-4 mb-4 rounded-md bg-gray-600 text-white'><AiOutlineArrowLeft /> <span>Back</span></button>
           </Link>
         </div>
 
@@ -106,7 +100,7 @@ const ProductItem = () => {
 
               <Link href="/">
                 <button
-                  onClick={handleAddCart}
+                  onClick={addToCart}
                   className=' bg-blue text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1'
                 >
                   <AiOutlineShoppingCart className="inline mb-1 mr-1" />{!checkCart?.inCart ? "Add To Cart" : "change cart"}</button>
