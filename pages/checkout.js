@@ -32,7 +32,7 @@ const Checkout = () => {
 
     const [cartView, setCartView] = useState(true)
 
-    const { cart, quantityChange } = useContext(productContext)
+    const { cart } = useContext(productContext)
 
     const total = cart?.map((x) => x.price * x.qtn)
 
