@@ -23,8 +23,8 @@ const Nav = () => {
         <nav className='w-full shadow-md'>
             <div className='relative border-b border-gray-100 px-2 mx-auto flex justify-between md:mb-10 max-w-[1300px] z-10'>
                 <div className='w-[90%] md:70% mx-auto py-2 flex justify-between items-center md:py-6'>
-                    <div className="flex-1">
-                        <input type="text" placeholder='Search for items' className='bg-[#F7F7F7] p-3 w-[100%]' />
+                    <div>
+                        <h1 className='border border-black p-1 font-bold'>JANIS</h1>
                     </div>
 
                     <div className='flex flex-1 items-center justify-end gap-3 md:w-[10%]'>

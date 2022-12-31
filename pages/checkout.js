@@ -16,6 +16,7 @@ const Checkout = () => {
     const checkout = (e) => {
         e.preventDefault()
     }
+    
     return (
         <>
             <section>
@@ -51,11 +52,11 @@ const Checkout = () => {
                         </div>
                         <div className="flex my-5 font-medium justify-center text-center flex-col-reverse gap-5">
                             <Link href='/'>
-                                <p><span className='text-[#0479b8]'>{"<"}</span> Return to Cart</p>
+                                <p><span className='text-[#0479b8]'>{"<"}</span>Back to product</p>
                             </Link>
 
                             <button onClick={checkout} className='bg-[#0087d2] rounded-md  shadow-lg text-white p-5'>
-                                Continue to shipping
+                                Submit
                             </button>
 
                         </div>

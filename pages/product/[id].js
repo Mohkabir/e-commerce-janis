@@ -16,7 +16,7 @@ const ProductItem = () => {
   const router = useRouter()
   const { id } = router.query
 
-  const { product,getProduct,cart,addToCart, quantityChange } = useContext(productContext)
+  const { product, getProduct, cart, addToCart, quantityChange } = useContext(productContext)
 
   useEffect(() => {
     getProduct(id)
@@ -33,7 +33,7 @@ const ProductItem = () => {
   const checkCart = cart?.find((cart) => product.id === cart.id)
 
   return (
-    <>
+    <div className='bg-[#F5F5F5]'>
       <Nav />
       <main className="w-full my-10 mx-auto max-w-[400px] md:max-w-[1200px]">
         <div className="btn pl-5">
@@ -49,9 +49,8 @@ const ProductItem = () => {
           </div>
 
           <div className="flex flex-col gap-2 md:w-[50%] py-5 px-3">
-
             <div className="info">
-              <p className="my-2 text-4xl font-semibold">{product.title}</p>
+              <p className="my-2 text-4xl lg:text-6xl font-semibold">{product.title}</p>
 
               <p className="my-2 text-md md:text-xl font-medium">{product.description}</p>
               <p>By <span className='text-[#22B7B2] font-semibold'>{product.author} {">"}</span></p>
@@ -87,7 +86,7 @@ const ProductItem = () => {
 
             </div>
 
-            <div>
+            <div className=''>
 
               <div className="flex justify-between items-center my-5 p-4 rounded-lg bg-gray-200 font-extrabold text-2xl sm:text-3xl md:p-3 md:w-40">
 
@@ -109,7 +108,8 @@ const ProductItem = () => {
             </div>
           </div>
         </div>
-      </main></>
+      </main>
+      </div>
   )
 }
 
