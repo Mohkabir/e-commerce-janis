@@ -9,6 +9,7 @@ import Nav from '../../components/Nav'
 import { convertString } from '../../components/ProductItem'
 import productContext from '../../context/productContext'
 import { staticProducts } from '../../data/products'
+import Spinner from '../../components/Spinner'
 
 
 const ProductItem = () => {
@@ -16,7 +17,7 @@ const ProductItem = () => {
   const router = useRouter()
   const { id } = router.query
 
-  const { product, getProduct, cart, addToCart, quantityChange } = useContext(productContext)
+  const { product, getProduct, cart, addToCart, isLoading, quantityChange } = useContext(productContext)
 
   useEffect(() => {
     getProduct(id)
@@ -26,11 +27,11 @@ const ProductItem = () => {
     quantityChange(type, product)
   }
 
-  if (product === undefined) {
-    return <h3>Loading</h3>
-  }
-
   const checkCart = cart?.find((cart) => product.id === cart.id)
+
+  if (product === undefined) {
+    return <Spinner />
+  }
 
   return (
     <div className='bg-[#F5F5F5]'>
@@ -38,7 +39,7 @@ const ProductItem = () => {
       <main className="w-full my-10 mx-auto max-w-[400px] md:max-w-[1200px]">
         <div className="btn pl-5">
           <Link href="/">
-            <button className='flex gap-1 items-center py-3 px-4 mb-4 rounded-md bg-gray-600 text-white'><AiOutlineArrowLeft /> <span>Back</span></button>
+            <button className='flex gap-1 items-center py-3 px-3 mb-4 rounded-md bg-[#8c8c8c] text-white'><AiOutlineArrowLeft /> <span>Back</span></button>
           </Link>
         </div>
 
@@ -109,7 +110,7 @@ const ProductItem = () => {
           </div>
         </div>
       </main>
-      </div>
+    </div>
   )
 }
 

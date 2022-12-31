@@ -5,30 +5,21 @@ import Meta from "../components/Meta"
 import Nav from "../components/Nav";
 import { staticProducts } from "../data/products"
 import productContext from "../context/productContext";
+import Footer from "../components/Footer";
 
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
 
-  const { setProducts } = useContext(productContext)
+  const { setProducts, isLoading, setIsLoading } = useContext(productContext)
 
   useEffect(() => {
     let mount = true
-
     const fecthProducts = () => {
       try {
         if (mount) {
-
-          // if (!localStorage.getItem("products")) {
-            setProducts(staticProducts)
-          // }
-          // else if (localStorage.getItem("products")) {
-          //   setProducts(localStorage.getItem("products"))
-          // }
-          console.log('fetchccfetchccfetchccfetchcc')
+          setProducts(staticProducts)
           setIsLoading(false)
-
         }
       } catch (error) {
         setIsError(true)

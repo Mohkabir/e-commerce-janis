@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Router, { useRouter } from 'next/router'
 import React, { useContext, useState } from 'react'
 import { AiOutlineArrowDown, AiOutlineArrowRight } from 'react-icons/ai'
 import { RiDeleteBin5Line } from 'react-icons/ri'
@@ -7,21 +8,29 @@ import { convertString } from '../components/ProductItem'
 import productContext from '../context/productContext'
 
 const Checkout = () => {
-    const [cartView, setCartView] = useState(false)
+    const [cartView, setCartView] = useState(true)
 
-    const { cart } = useContext(productContext)
+    const { cart, quantityChange } = useContext(productContext)
 
     const total = cart?.map((x) => x.price * x.qtn)
 
     const checkout = (e) => {
         e.preventDefault()
+        router.push("/success")
     }
-    
+
+    const router = useRouter()
+
+    if (cart.length === 0) {
+        router.push("/")
+    }
+
     return (
         <>
             <section>
                 <div className='checkout flex flex-col-reverse py-5 max-w-lg w-[90%] mx-auto lg:flex-row lg:max-w-6xl lg:justify-between lg:gap-10 lg:items-start'>
                     <form className='lg:w-[60%] lg:border-[#e6e6e6]  lg:border lg:border-y-0  lg:border-r-[#e8e8e8] lg:border-l-0 lg:pr-10'>
+
                         <div className="flex flex-col gap-5 mt-5">
                             <div>
                                 <h2 className='text-md'>contact information</h2>
@@ -50,14 +59,17 @@ const Checkout = () => {
                             </div>
 
                         </div>
+
                         <div className="flex my-5 font-medium justify-center text-center flex-col-reverse gap-5">
                             <Link href='/'>
-                                <p><span className='text-[#0479b8]'>{"<"}</span>Back to product</p>
+                                <p><span className='text-[#0479b8]'>{"<"} </span> Back to product</p>
                             </Link>
 
-                            <button onClick={checkout} className='bg-[#0087d2] rounded-md  shadow-lg text-white p-5'>
-                                Submit
-                            </button>
+                            <Link href='/'>
+                                <button onClick={checkout} className='bg-[#0087d2] hover:bg-[#0371ac] rounded-md shadow-lg text-white p-5 w-full'>
+                                    Submit
+                                </button>
+                            </Link>
 
                         </div>
                     </form>
@@ -98,9 +110,13 @@ const Checkout = () => {
 
                                             <span className='absolute -top-3 bg-[#808080] px-1 rounded-full h-5 leading-5 text-white right-0'>{cart.qtn}</span>
                                         </div>
-
                                         <p className=' text-sm'> {cart.title}</p>
                                     </div>
+                                    {/* <div>
+                                        <button>
+                                            +
+                                        </button>
+                                    </div> */}
                                     <div className="text-sm">
                                         <p>
                                             {`#${convertString(cart.price * cart.qtn)}`}

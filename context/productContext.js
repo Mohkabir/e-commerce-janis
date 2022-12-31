@@ -1,14 +1,13 @@
 import { createContext, useState } from "react";
+import Spinner from "../components/Spinner";
 import { staticProducts } from "../data/products";
 
 const productContext = createContext()
 
 
 export const ProductContextProvider = ({ children }) => {
-
+    const [isLoading, setIsLoading] = useState(true)
     const [products, setProducts] = useState([])
-    const [productFill, setProductFill] = useState([])
-
     const [product, setProduct] = useState({})
     const [cart, setCart] = useState([])
 
@@ -26,12 +25,10 @@ export const ProductContextProvider = ({ children }) => {
     }
 
     const getProduct = (id) => {
-        console.log(productFill, 'productFillproductFill')
         setProducts(staticProducts)
         const filteredProduct = products.filter((x) => x.id == id)
         setProduct(filteredProduct[0])
     }
-
 
     const quantityChange = (type, id) => {
         if (type === "INCREMENT") {
@@ -55,12 +52,13 @@ export const ProductContextProvider = ({ children }) => {
     }
 
 
+
     return <productContext.Provider value={{
         products,
         product,
+        cart, isLoading, setIsLoading,
         setProducts,
         setProduct,
-        cart,
         setCart,
         quantityChange,
         addToCart,
