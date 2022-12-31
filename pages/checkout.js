@@ -1,13 +1,35 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AiOutlineArrowDown, AiOutlineArrowRight } from 'react-icons/ai'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { convertString } from '../components/ProductItem'
 import productContext from '../context/productContext'
 
 const Checkout = () => {
+    const initialForm = {
+
+    }
+    const [formData, setformData] = useState({
+        email: "",
+        firstName: "",
+        lastName: "",
+        company: "",
+        address: "",
+        city: "",
+        state: "",
+        phone: ""
+    })
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setformData((prev) => ({
+            ...prev, [name]: value
+        }))
+    }
+
     const [cartView, setCartView] = useState(true)
 
     const { cart, quantityChange } = useContext(productContext)
@@ -16,46 +38,59 @@ const Checkout = () => {
 
     const checkout = (e) => {
         e.preventDefault()
+
         router.push("/success")
+
+        console.log(cart ,formData)
     }
 
     const router = useRouter()
 
-    if (cart.length === 0) {
-        router.push("/")
-    }
+    useEffect(() => {
+        if (cart.length === 0) {
+            router.push("/")
+        }
+    }, [])
+
 
     return (
         <>
             <section>
                 <div className='checkout flex flex-col-reverse py-5 max-w-lg w-[90%] mx-auto lg:flex-row lg:max-w-6xl lg:justify-between lg:gap-10 lg:items-start'>
                     <form className='lg:w-[60%] lg:border-[#e6e6e6]  lg:border lg:border-y-0  lg:border-r-[#e8e8e8] lg:border-l-0 lg:pr-10'>
-
+                        {/* email: "",
+        firstName: "",
+        lastName: "",
+        company: "",
+        address: "",
+        city: "",
+        state: "",
+        phone: "" */}
                         <div className="flex flex-col gap-5 mt-5">
                             <div>
                                 <h2 className='text-md'>contact information</h2>
                             </div>
                             <div className='input'>
                                 <label htmlFor="email"></label>
-                                <input type="text" placeholder='Email' />
+                                <input type="text" onChange={(e) => handleChange(e)} name='email' value={formData.email} placeholder='Email' />
                             </div>
                             <div className="input gap-5 flex flex-col md:flex-row">
-                                <input type="text" placeholder='First name' />
-                                <input type="text" placeholder='Last name' />
-                            </div>
-                            <div className="input">
-                                <input type="text" placeholder='Company (Optional)' />
-                            </div>
-                            <div className="input">
-                                <input type="text" placeholder='Address' />
-                            </div>
-                            <div className="input gap-5 flex flex-col md:flex-row">
+                                <input type="text" onChange={(e) => handleChange(e)} name='firstName' value={formData.firstName} placeholder='Firstname' />
 
-                                <input type="text" placeholder='City' />
-                                <input type="text" placeholder='State' />
+                                <input type="text" onChange={(e) => handleChange(e)} name='lastName' value={formData.lastName} placeholder='Lastname' />
                             </div>
                             <div className="input">
-                                <input type="text" placeholder='Phone' />
+                                <input type="text" onChange={(e) => handleChange(e)} placeholder='Company (Optional)' value={formData.company} name="company" />
+                            </div>
+                            <div className="input">
+                                <input type="text" onChange={(e) => handleChange(e)} placeholder='Address' value={formData.address} name="address" />
+                            </div>
+                            <div className="input gap-5 flex flex-col md:flex-row">
+                                <input type="text" onChange={(e) => handleChange(e)} placeholder='City' value={formData.city} name="city" />
+                                <input type="text" onChange={(e) => handleChange(e)} placeholder='State' value={formData.state} name="state" />
+                            </div>
+                            <div className="input">
+                                <input type="text" onChange={(e) => handleChange(e)} placeholder='Phone' value={formData.phone} name="phone" />
                             </div>
 
                         </div>
@@ -65,11 +100,9 @@ const Checkout = () => {
                                 <p><span className='text-[#0479b8]'>{"<"} </span> Back to product</p>
                             </Link>
 
-                            <Link href='/'>
                                 <button onClick={checkout} className='bg-[#0087d2] hover:bg-[#0371ac] rounded-md shadow-lg text-white p-5 w-full'>
                                     Submit
                                 </button>
-                            </Link>
 
                         </div>
                     </form>
