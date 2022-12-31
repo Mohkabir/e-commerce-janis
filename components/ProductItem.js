@@ -24,7 +24,7 @@ const ProductItem = ({ product }) => {
       </div>
 
       <div className="py-5 px-3 rounded-md flex flex-col gap-1">
-        <p className="text-sm sm:text-lg text-center font-medium">{product.title}</p>
+        <p className="text-sm sm:text-xl text-red-600 text-center font-medium">{product.title}</p>
 
         <div className="flex flex-col text-center items-center gap-3">
           <p className="font-bold text-base md:text-2xl">#{convertString(product.price)} NGN</p>
