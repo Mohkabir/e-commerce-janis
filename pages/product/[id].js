@@ -101,7 +101,7 @@ const ProductItem = () => {
               <Link href="/">
                 <button
                   onClick={addToCart}
-                  className=' bg-blue text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1'
+                  className={` text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1  ${checkCart?.inCart ? "bg-gray-500 hover:bg-gray-600" : "bg-blue"}`}
                 >
                   <AiOutlineShoppingCart className="inline mb-1 mr-1" />{!checkCart?.inCart ? "Add To Cart" : "change cart"}</button>
               </Link>

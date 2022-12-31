@@ -48,7 +48,7 @@ const ProductItem = ({ product }) => {
 
         <div className="mt-7">
           <Link href={`product/${product.id}`} className="text-xs  sm:text-lg">
-            <button className="bg-blue text-white w-full p-2 rounded-md font-bold  md:flex-1">
+            <button className={` text-white w-full p-2 rounded-md font-bold  md:flex-1 ${checkCart?.inCart ? "bg-gray-500 hover:bg-gray-600" : "bg-blue "}`}>
               <AiOutlineShoppingCart className="inline mb-1 mr-1" />
               <span>{checkCart?.inCart ? "in cart" : "Add To Cart"}</span>
             </button>
