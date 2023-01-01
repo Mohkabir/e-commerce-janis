@@ -37,11 +37,11 @@ export default function Home() {
   }
 
   return (
-
     <div className="bg-[#f5f5f5]">
-      <Nav />
       <Meta />
+      <Nav />
       <Main />
+      <Footer/>
     </div>
   )
 }

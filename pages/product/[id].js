@@ -10,6 +10,9 @@ import { convertString } from '../../components/ProductItem'
 import productContext from '../../context/productContext'
 import { staticProducts } from '../../data/products'
 import Spinner from '../../components/Spinner'
+import { useState } from 'react'
+import Footer from '../../components/Footer'
+import { useRef } from 'react'
 
 
 const ProductItem = () => {
@@ -17,10 +20,19 @@ const ProductItem = () => {
   const router = useRouter()
   const { id } = router.query
 
-  const { product, getProduct, cart, addToCart, isLoading, quantityChange } = useContext(productContext)
+  const selectOption = useRef()
+
+  const [singleProduct, setSingleProduct] = useState({})
+
+  const { product, getProduct, setProduct, cart, addToCart, isLoading, quantityChange } = useContext(productContext)
 
   useEffect(() => {
     getProduct(id)
+    setProduct((prev) => (
+      {
+        ...prev, item: "1 month pack"
+      }
+    ))
   }, [id])
 
   const addToQuantity = (type, product) => {
@@ -29,12 +41,22 @@ const ProductItem = () => {
 
   const checkCart = cart?.find((cart) => product.id === cart.id)
 
+  const selectChange = (e) => {
+    console.log(e.value)
+    setProduct((prev) => (
+      {
+        ...prev, item: e.target.value
+      }
+    ))
+  }
+
+  console.log(product, 'product')
   if (product === undefined) {
     return <Spinner />
   }
 
   return (
-    <div className='bg-[#F5F5F5]'>
+    <div className='bg-[#F5F5F5] mt-24 '>
       <Nav />
       <main className="w-full my-10 mx-auto max-w-[400px] md:max-w-[1200px]">
         <div className="btn pl-5">
@@ -89,16 +111,22 @@ const ProductItem = () => {
 
             <div className=''>
 
-              <div className="flex justify-between items-center my-5 p-4 rounded-lg bg-gray-200 font-extrabold text-2xl sm:text-3xl md:p-3 md:w-40">
+              <div className="w-full my-5 p-4 rounded-lg bg-gray-200 font-medium text-2xl sm:text-3xl md:p-3">
 
-                <button className="text-gray-500" onClick={() => addToQuantity('DECREMENT', product.id)}>-</button>
+                {/* <button className="text-gray-500" onClick={() => addToQuantity('DECREMENT', product.id)}>-</button>
 
                 <p className="text-lg md:text-xl">{product.qtn}</p>
 
-                <button className="text-gray-500" onClick={() => addToQuantity('INCREMENT', product.id)}>+</button>
+                <button className="text-gray-500" onClick={() => addToQuantity('INCREMENT', product.id)}>+</button> */}
+
+                <select name="list" ref={selectOption} id="list" className='w-full  cursor-pointer bg-transparent border-0 outline-0' onChange={(e) => selectChange(e)}>
+                  <option value="1 month pack">1 month pack</option>
+                  <option value="3 month pack">3 month pack</option>
+                  <option value="6 month pack">6 month pack</option>
+                </select>
               </div>
 
-              <Link href="/">
+              <Link href="/checkout">
                 <button
                   onClick={addToCart}
                   className={` text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1  ${checkCart?.inCart ? "bg-gray-500 hover:bg-gray-600" : "bg-blue"}`}
@@ -110,6 +138,8 @@ const ProductItem = () => {
           </div>
         </div>
       </main>
+      <Footer />
+
     </div>
   )
 }

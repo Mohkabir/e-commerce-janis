@@ -7,7 +7,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <ProductContextProvider>
       <Component {...pageProps} />
-      <Footer/>
     </ProductContextProvider>
   )
 }

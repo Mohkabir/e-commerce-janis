@@ -1,6 +1,41 @@
 const Footer = () => {
     return (
-        <div className='bg-[#061638] pt-[60px] pb-[30px] text-sm md:text-base'>
+        <div className='footer bg-[#061638] flex flex-col pt-[60px] pb-[30px] text-sm md:text-base'>
+            <div className="list">
+                <div>
+                    <h3>Shop</h3>
+                    <p>All</p>
+                    <p>Muscle Building</p>
+                    <p>fat burning</p>
+                    <p>energy</p>
+                    <p>wellness</p>
+                </div>
+                <div>
+                    <h3>Support</h3>
+                    <p>track my order</p>
+                    <p>shipping information</p>
+                    <p>terms and conditions</p>
+                    <p>return policy</p>
+                    <p>contact us</p>
+                </div>
+                <div>
+                    <h3>Support</h3>
+                    <p>track my order</p>
+                    <p>shipping information</p>
+                    <p>terms and conditions</p>
+                    <p>return policy</p>
+                    <p>contact us</p>
+                </div>
+                <div>
+                    <h3>Blog</h3>
+                    <p>Nutrition</p>
+                    <p>shipping information</p>
+                    <p>terms and conditions</p>
+                    <p>return policy</p>
+                    <p>contact us</p>
+                </div>
+            </div>
+
             <div className="max-w-6xl mx-auto w-[90%]">
                 <div className=' max-w-[600px] mx-auto'>
                     <div className='border border-white px-[20px] py-[20px] text-center'>

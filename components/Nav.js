@@ -20,9 +20,9 @@ const Nav = () => {
     }
 
     return (
-        <nav className='w-full shadow-md'>
-            <div className='relative border-b border-gray-100 px-2 mx-auto flex justify-between md:mb-10 max-w-[1300px] z-10'>
-                <div className='w-[90%] md:70% mx-auto py-2 flex justify-between items-center md:py-6'>
+        <nav className='w-full bg-white shadow-md fixed top-0'>
+            <div className='relative w-[90%] mx-auto flex justify-between max-w-[1300px] z-1'>
+                <div className='w-full py-4 flex justify-between items-center'>
                     <div>
                         <h1 className='border border-black p-1 font-bold'>JANIS</h1>
                     </div>
@@ -35,7 +35,7 @@ const Nav = () => {
                     </div>
                 </div>
 
-                {<div className={`absolute transition-all duration-300 bg-white top-[85px] ${!viewCart ? 'left-[100%] md:left-[100%] lg:md:left-[120%]' : 'left-[0px] md:left-[62%]'} right-0 rounded-lg w-[95%] max-w-lg m-auto shadow-xl p-1 z-30 md:w-[35%] md:right-0 md:m-0`}
+                {<div className={`absolute transition-all duration-300 bg-white top-[85px] ${!viewCart ? 'left-[150%] ' : 'left-[0px] md:left-[62%]'} right-0 rounded-lg w-[95%] max-w-lg m-auto shadow-xl p-1 z-30 md:w-[35%] md:right-0 md:m-0`}
                 >
                     <div>
                         <h4 className='text-black p-5 border-gray-200 border-b font-bold text-md'>Cart</h4>

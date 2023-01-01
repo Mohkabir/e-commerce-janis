@@ -9,9 +9,6 @@ import productContext from '../context/productContext'
 
 const Checkout = () => {
     const initialForm = {
-
-    }
-    const [formData, setformData] = useState({
         email: "",
         firstName: "",
         lastName: "",
@@ -20,7 +17,8 @@ const Checkout = () => {
         city: "",
         state: "",
         phone: ""
-    })
+    }
+    const [formData, setformData] = useState(initialForm)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,7 +32,8 @@ const Checkout = () => {
 
     const { cart } = useContext(productContext)
 
-    const total = cart?.map((x) => x.price * x.qtn)
+
+    const total = cart?.map((x) => x.price * +x?.item.slice(0,1))
 
     const checkout = (e) => {
         e.preventDefault()
@@ -45,6 +44,8 @@ const Checkout = () => {
     }
 
     const router = useRouter()
+
+    console.log(cart.map((c) => +c.item.slice(0,1)) , 'cart')
 
     useEffect(() => {
         if (cart.length === 0) {
@@ -58,14 +59,7 @@ const Checkout = () => {
             <section>
                 <div className='checkout flex flex-col-reverse py-5 max-w-lg w-[90%] mx-auto lg:flex-row lg:max-w-6xl lg:justify-between lg:gap-10 lg:items-start'>
                     <form className='lg:w-[60%] lg:border-[#e6e6e6]  lg:border lg:border-y-0  lg:border-r-[#e8e8e8] lg:border-l-0 lg:pr-10'>
-                        {/* email: "",
-        firstName: "",
-        lastName: "",
-        company: "",
-        address: "",
-        city: "",
-        state: "",
-        phone: "" */}
+              
                         <div className="flex flex-col gap-5 mt-5">
                             <div>
                                 <h2 className='text-md'>contact information</h2>
@@ -141,7 +135,8 @@ const Checkout = () => {
                                         <div className='relative inline-block'>
                                             <Image className=' w-[60px] rounded-md border border-[#0000001a]' src={cart.img.src} alt='pro-imgage' width={100} height={100} />
 
-                                            <span className='absolute -top-3 bg-[#808080] px-1 rounded-full h-5 leading-5 text-white right-0'>{cart.qtn}</span>
+                                            <span className='absolute w-[100px] text-sm -top-4 -right-7 bg-[#808080] px-1 rounded-full h-5 leading-5 text-white right-0'>{cart.item}</span>
+
                                         </div>
                                         <p className=' text-sm'> {cart.title}</p>
                                     </div>
