@@ -1,4 +1,4 @@
-import productImg1 from "../assets/img/Arjuna-Lasuna.png";
+import arj1 from "../assets/img/Arjuna-Lasuna.png";
 import productImg2 from "../assets/img/ArjunaPlus.png";
 import productImg3 from "../assets/img/AR1.png";
 import productImg4 from "../assets/img/Cardio-Vital.png";
@@ -6,7 +6,6 @@ import productImg5 from "../assets/img/A1.png";
 import productImg21 from "../assets/img/A3.png";
 import productImg22 from "../assets/img/A6.png";
 import productImg6 from "../assets/img/BCG-35.png";
-import productImg7 from "../assets/img/Blood Sugar Normalizer.png";
 import productImg8 from "../assets/img/Boscure.png";
 import productImg9 from "../assets/img/B11.png";
 import productImg10 from "../assets/img/Brahmi Shakti.png";
@@ -22,7 +21,7 @@ import productImg19 from "../assets/img/Madhuhara.png";
 import productImg20 from "../assets/img/Prostopan.png";
 import bo2 from "../assets/img/Bo2.png";
 import bo3 from "../assets/img/Bo3.png";
-import twoinone from "../assets/img/6.png";
+import twoinone from "../assets/img/Blood Sugar Normalizer.png";
 import twoinone3 from "../assets/img/7.png";
 
 export const staticProducts = [
@@ -41,7 +40,7 @@ export const staticProducts = [
     colorTitle: "#2D6416",
     colorDesc: "#0D3F82",
     colorList: "#FC8608",
-    // colorTheme: "#B31623",
+    colorTheme: "#2D6516",
     contents: {
       head1: "EXPERIENCE LOWER BLOOD PRESSURE LEVEL",
       text1: [
@@ -128,6 +127,7 @@ export const staticProducts = [
     colorTitle: "#103CC0",
     colorDesc: "#860002",
     colorList: "#FC8608",
+    colorTheme: "#103CC0",
     contents: {
       head1:
         "Rebuild A Healthy And Strong Joint Like You Had In Your 30s Again",
@@ -203,8 +203,7 @@ export const staticProducts = [
   },
   {
     id: 7,
-    img: productImg7,
-    img2: twoinone,
+    img: twoinone,
     title: "DIABETES 2-IN-1",
     description: "Advanced Sugar Destroyer",
     author: "Muscleblaze",
@@ -214,6 +213,7 @@ export const staticProducts = [
     price: "49,500.00",
     discount: 29,
     qtn: 1,
+    colorTheme: "#BD0005",
     contents: {
       head1: "Rebuild A Healthy Life. Get Rid Of High Sugar Levels",
       text1: [
@@ -287,7 +287,6 @@ export const staticProducts = [
   {
     id: 14,
     img: productImg17,
-    img2: twoinone,
     title: "M-POWER ULTRA-ALPHA ENFORCER",
     description: "Maximum Sexual Performance",
     star: 4.5,
@@ -366,6 +365,85 @@ export const staticProducts = [
       ],
     },
   },
+  {
+    id: 15,
+    img: arj1,
+    title: "ARJUNA-LASUNA",
+    description: "Healthy Heart Supplement",
+    star: 4.5,
+    reviews: 568,
+    formerPrice: "49,550.00",
+    price: "49,500.00",
+    discount: 29,
+    qtn: 1,
+    colorTheme: "#B17E05",
+    contents: {
+      head1: "Reverse Even The Most Stubborn Hypertension Naturally",
+      text1: [
+        "Arjuna & Lasuna are made from natural herbs that reverses high blood pressure, supports normal blood pressure, helps relieve chronic stress, improves mood and brain function. ",
+        "Ayurvedic Medicine is a major extract in Arjuna & Lasuna. Its extracts is found mostly in Indian, and it completely reverses even the most acute form hypertension",
+      ],
+      head2: "BUILD BETTER HEALTH WITHOUT FEAR OF GIVING IN TO HYPERTENSION",
+      text2: [
+        "“Say Goodbye to hypertension and high blood pressure completely! Enough of the suffering and pain, enough of the fear of sudden death. It’s time to enjoy life to the fullest.”",
+        "Arjuna and Lasuna, the magical twins from the ancient medical world of India.",
+        "Himalaya Arjuna contains herbal extracts from the bark of Arjuna. The extracts of Arjuna are effective in the treatment of cardiovascular ailments, treating asthma, controlling hypertension, and preventing kidney stones. Rich in antioxidant properties, the Himalaya Arjuna promotes blood circulation and heals wounds.",
+        "Lasuna, on the other hand, contains Lasuna (Allium sativum) bulb extract. Lasuna lowers blood lipid levels by modulating key enzymes in the liver responsible for cholesterol biosynthesis.",
+        "It also helps prevent the hardening of blood vessels by reducing lipid accumulation in the arteries. They call this “The Cholesterol Destroyer”.",
+      ],
+      head3:
+        "LIVE LIFE ON YOUR OWN TERMS WITHOUT WORRYING ABOUT RISING BLOOD PRESSURE",
+      listType: "✓",
+      list1: [
+        "Get Rid Of Constant Body Weakness",
+        "Reverse Even The Most Acute Hypertension",
+        "Get Stable Blood Pressure Reading And Avoid The Risk Of Stroke and Heart Attack",
+      ],
+      pricingTable: [
+        {
+          id: 1,
+          image: twoinone,
+          price: "49,550.00",
+          prevPrice: "110,000.00",
+          plan: "One Month Plan",
+          saved: "Save 45%",
+        },
+        {
+          id: 3,
+          image: twoinone3,
+          price: "149,500.00",
+          prevPrice: "276,850.00",
+          plan: "6 Months Super Pack",
+          saved: "Save 54%",
+          most: "MOST POPULAR",
+        },
+        {
+          id: 2,
+          image: twoinone,
+          price: "79,500.00",
+          prevPrice: "155,880.00",
+          plan: "3 Bottles of Ashwagandha",
+          saved: "Save 51%",
+        },
+      ],
+      reviewsImg: "",
+      testimonies: [
+        {
+          name: "Tony Ugo",
+          title: "I’m glad I found this!",
+          description:
+            "I’m grateful I found this product. I was at the point of giving up on my rising blood pressure level when  Arjuna-Lasuna came to the rescue. I can say I’m totally free now.",
+        },
+        {
+          name: "Ope Ayeola",
+          title: "This is it!",
+          description:
+            "After I got the news of my hypertension from my doctor, I thought all hope was lost until I found this natural formula. It was all like a miracle to me.",
+        },
+      ],
+    },
+  },
+
   {
     id: 17,
     img: productImg20,
@@ -461,6 +539,7 @@ export const staticProducts = [
     price: "49,500.00",
     discount: 29,
     qtn: 1,
+    colorTheme: "#B17E05",
     contents: {
       head1:
         "Rebuild A Healthy And Strong Joint Like You Had In Your 30s Again",
@@ -545,6 +624,7 @@ export const staticProducts = [
     price: "49,500.00",
     discount: 29,
     qtn: 1,
+    colorTheme: "#B17E05",
     contents: {
       head1: "BUILD A HEALTHY HEART. GET RID OF HYPERTENSION COMPLETELY",
       text1: [
@@ -619,22 +699,86 @@ export const staticProducts = [
       ],
     },
   },
-
-  
   {
     id: 4,
     img: productImg4,
-    title: "Ashwagandha + Cardio-Vital",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!",
+    title: "CARDIO-VITAL",
+    description: "Natural Cardiovascular Support",
     author: "Muscleblaze",
     star: 4.5,
     reviews: 568,
-    formerPrice: 4000,
-    price: 3499,
+    formerPrice: "49,500.00",
+    price: "49,500.00",
     discount: 29,
     qtn: 1,
+    contents: {
+      head1: "BUILD A HEALTHY LIFE WITHOUT DEALING WITH HYPERTENSION",
+      text1: [
+        "Cardio-Vital burns bad cholesterol in the blood vessels hence reducing the blood density. It helps the free flow of blood to the heart and across the body thus forcing a reversal of the high blood pressure to normal.",
+      ],
+      head2:
+        "REVERSE YOUR HIGH BLOOD PRESSURE AND GET YOUR HEART WORKING PERFECTLY",
+      text2: [
+        "“​For most people, the heart condition will be perfectly reversed and normal. Most people report drastic improvements while taking Cardio-Vital once a day”",
+        "The active ingredients in Cardio-Vital are, Hawthorn extract (leaf and flower), and Hibiscus extract.",
+        "Hawthorn extracts are used for circulatory disorders, congestive heart failure (CHF), high blood pressure (hypertension), and low blood pressure (hypotension).",
+
+        "Hibiscus extract, on the other hand, is made by steeping parts of the hibiscus plant in boiling water. Research has uncovered a range of health benefits linked to hibiscus, showing that it lowers blood pressure, fight bacteria. It’s also packed with antioxidants- molecules that help fight compounds called free radicals, which cause damage to your cells.",
+      ],
+      head3:
+        "GET INTO PERFECT HEALTH AND LIVE FREE FROM RISING BLOOD PRESSURE LEVEL",
+      listType: "✓",
+      list1: [
+        "Reduces Your Risk Of Cardiovascular diseases",
+        "Rebuilds Heart Muscles And Promote Healthy Heart",
+        "No Side Effect. Made From 100% Natural Plant Extracts.",
+        "Lowers Even The Most Stubborn High Blood Pressure",
+      ],
+      pricingTable: [
+        {
+          id: 1,
+          image: twoinone,
+          price: "49,550.00",
+          prevPrice: "110,000.00",
+          plan: "One Month Plan",
+          saved: "Save 45%",
+        },
+        {
+          id: 3,
+          image: twoinone3,
+          price: "149,500.00",
+          prevPrice: "276,850.00",
+          plan: "6 Months Super Pack",
+          saved: "Save 54%",
+          most: "MOST POPULAR",
+        },
+        {
+          id: 2,
+          image: twoinone,
+          price: "79,500.00",
+          prevPrice: "155,880.00",
+          plan: "3 Bottles of Ashwagandha",
+          saved: "Save 51%",
+        },
+      ],
+      reviewsImg: "",
+      testimonies: [
+        {
+          name: "Pa Jonathan Efe",
+          title: " I was wrong. It worked!",
+          description:
+            "I no longer feel those chest pains and weakness. I must say, it’s an amazing product. I wasn’t sure it was going to work for me at first, but I was wrong.",
+        },
+        {
+          name: "Gideon Isaac",
+          title: "I’m totally free!",
+          description:
+            "Hypertension has really made me to spend a lot of money. I was always from one supplement to another until I came across Cardio-Vital. I can say that I have had a stable blood pressure since then. I’m grateful",
+        },
+      ],
+    },
   },
+
   {
     id: 6,
     img: productImg6,

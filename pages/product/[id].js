@@ -71,7 +71,10 @@ const ProductItem = () => {
       <main className="w-full my-10 mx-auto ">
         <div className="flex flex-col md:flex-row items-center md:w-[80%] w-[90%] mx-auto">
           <div className="text-center block md:hidden">
-            <p className=" my-2 text-4xl md:text-[55px] font-semibold text-[#3C3C3C] ">
+            <p
+              className=" my-2 text-4xl md:text-[55px] font-semibold "
+              style={{ color: `${product.colorTheme || "#3C3C3C"}` }}
+            >
               {product.title}
             </p>
             <p className="my-2 text-md md:text-xl font-medium">
@@ -80,7 +83,7 @@ const ProductItem = () => {
           </div>
           <div className="shadow-sm w-full  md:w-[50%] text-center">
             <Image
-              src={product.id == 7 ? product.img2 : product.img}
+              src={product.img}
               alt="product"
               width={100}
               height={100}
@@ -90,7 +93,10 @@ const ProductItem = () => {
           </div>
           <div className="h flex flex-col w-full md:w-[50%] py-5 px-3">
             <div className="hidden md:block">
-              <p className=" my-2 text-4xl md:text-[55px] font-semibold text-[#3C3C3C] leading-[40px] md:leading-[60px]">
+              <p
+                className=" my-2 text-4xl md:text-[55px] font-semibold text-[#3C3C3C] leading-[40px] md:leading-[60px]"
+                style={{ color: `${product.colorTheme || "#3C3C3C"}` }}
+              >
                 {product.title}
               </p>
               <p className="my-2 text-md md:text-xl font-medium">
@@ -113,7 +119,9 @@ const ProductItem = () => {
             <div className="">
               <Link href="/checkout">
                 <button
-                  onClick={() => addToCart(product.price)}
+                  onClick={() =>
+                    addToCart(product.price, "1 month plan", product.img)
+                  }
                   className={` text-white w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1  ${
                     checkCart?.inCart
                       ? "bg-gray-500 hover:bg-gray-600"
@@ -137,10 +145,11 @@ const ProductItem = () => {
             ))}
           </div>
           <div
-            className="bg-[green] text-[white] p-4 md:p-8 text-center"
+            className={` text-[white] p-4 md:p-8 text-center`}
             style={{
               borderTopLeftRadius: "30px",
               borderTopRightRadius: "30px",
+              background: product.colorTheme || "green",
             }}
           >
             <h2
@@ -163,7 +172,7 @@ const ProductItem = () => {
           <div className=" flex flex-col md:flex-row justify-between md:gap-8">
             {product.contents?.list1.map((text, idx) => (
               <p key={idx} className="flex md:flex-1">
-                <span style={{ color: product.colorList }}>
+                <span style={{ color: "#FC8608" }}>
                   {product.contents.listType}
                 </span>{" "}
                 {text}
@@ -230,7 +239,9 @@ const ProductItem = () => {
                   <div className="my-4">
                     <Link href="/checkout">
                       <button
-                        onClick={() => addToCart(item.price)}
+                        onClick={() =>
+                          addToCart(item.price, item.plan, item.image)
+                        }
                         className={` text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1  ${
                           checkCart?.inCart
                             ? "bg-gray-500 hover:bg-gray-600"
