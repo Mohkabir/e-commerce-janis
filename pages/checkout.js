@@ -40,7 +40,6 @@ const Checkout = () => {
     }
   };
 
-  console.log(cart, "cartcart");
   const total = () => {
     if (cart.length > 1) {
       let res = cart.reduce((a, b) => {
