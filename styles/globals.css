@@ -83,6 +83,59 @@ h2 {
 section {
   background-color: white;
 }
+.nav_contents {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.nav_contents li {
+  list-style-type: none;
+  font-size: 19px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  border-bottom: 3px solid white;
+}
+.nav_contents li:hover {
+  /* text-decoration: underline; */
+  border-bottom: 3px solid black;
+}
+.product_wrap {
+  /* border: 3px solid red; */
+  position: relative;
+}
+.product_wrap .thumbnail {
+  /* background-color: #103cc0; */
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0%;
+}
+
+.product_wrap:hover .thumbnail {
+  transition: all 300ms ease-in;
+  background-color: rgba(16, 60, 192, 0.9);
+  /* height: 100%; */
+  /* bottom: 0%; */
+}
+.product_wrap .thumbinfo {
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  /* height: 30%; */
+  bottom: -40%;
+  background-color: white;
+}
+.product_wrap:hover .thumbinfo {
+  transition: all 600ms ease-in;
+  bottom: 0%;
+}
+.product_wrap:hover .thumbinfo > div {
+  /* border: 2px solid red; */
+}
 
 .checkout .input {
   width: 100%;
@@ -129,4 +182,20 @@ section {
   flex-direction: column;
   gap: 20px;
   max-width: 400px;
+}
+
+@media (max-width: 724px) {
+  .product_wrap .thumbinfo {
+    transition: all 300ms ease-in-out;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    /* height: 30%; */
+    bottom: -70%;
+    background-color: white;
+  }
+  .product_wrap:hover .thumbinfo {
+    transition: all 600ms ease-in;
+    bottom: 0%;
+  }
 }

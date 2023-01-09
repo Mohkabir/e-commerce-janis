@@ -484,8 +484,7 @@ export const staticProducts = [
     discount: 29,
     qtn: 1,
     contents: {
-      head1:
-        "Rebuild A Healthy And Strong Joint Like You Had In Your 30s Again",
+      head1: "Have A Healthy Prostate. Clean Your Glands",
       text1: [
         "Prostopan contains a nettle root extract that helps increase the formation of urine, clear the impurities from fat, blood and muscles, clean the glands and re-establish the intelligence of the glands so that they can return to their normal size, and maintain regular prostate functions",
       ],
@@ -569,7 +568,7 @@ export const staticProducts = [
     colorTheme: "#B17E05",
     contents: {
       head1:
-        "Rebuild A Healthy And Strong Joint Like You Had In Your 30s Again",
+        "Restore Fertility, Relieve Pains And Fibroids, Boost Healthy Living",
       text1: [
         "Fertivitz contains ashoka bark extract, which helps with uterine fibroids and other internal fibroids, dysmenorrhea, menstrual disorders, cysts, fibroids, irregular menstrual cycles, and other reproductive disorders. Fertivitz balances hormones as well as providing nourishment and strength to the uterus thereby also boosting fertility.s",
       ],

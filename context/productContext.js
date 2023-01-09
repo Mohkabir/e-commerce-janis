@@ -14,7 +14,13 @@ export const ProductContextProvider = ({ children }) => {
     const exist = cart?.find((x) => x.id === product.id);
     if (exist) {
       setCart([
-        { ...product, inCart: true, selectedPrice: price, selectedPlan: plan, selectedImg:img },
+        {
+          ...product,
+          inCart: true,
+          selectedPrice: price,
+          selectedPlan: plan,
+          selectedImg: img,
+        },
       ]);
       return;
     }
@@ -29,7 +35,6 @@ export const ProductContextProvider = ({ children }) => {
       },
     ]);
   };
-
   const getProduct = (id) => {
     setProducts(staticProducts);
     const filteredProduct = products.filter((x) => x.id == id);
