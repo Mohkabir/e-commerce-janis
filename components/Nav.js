@@ -11,8 +11,18 @@ import logo from "../assets/img/Janis.png";
 const Nav = () => {
   const [viewCart, setViewCart] = useState(false);
 
-  const { cart, setCart } = useContext(productContext);
+  const { cart, setCart, sorProduct } = useContext(productContext);
 
+  const handleTopProduct = () => {
+    sorProduct("topProduct");
+  };
+  const handleAllProduct = () => {
+    sorProduct("allProduct");
+  };
+
+  const handleBestStack = () => {
+    sorProduct("sellingStack");
+  };
   const total = cart?.map((x) => x.price * x.qtn);
 
   const handleDelete = (id) => {
@@ -27,6 +37,14 @@ const Nav = () => {
     >
       <div className="relative w-[90%] mx-auto flex justify-between max-w-[1300px] z-5">
         <div className="w-full py-6 flex justify-between items-center">
+          <div className="menu_wrap">
+            <div className="menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
           <div>
             <Link href="/">
               <Image
@@ -39,9 +57,9 @@ const Nav = () => {
           </div>
 
           <div className="nav_contents">
-            <li>VIEW ALL PRODUCTS</li>
-            <li>TOP PRODUCTS</li>
-            <li>BEST SELLING STACK</li>
+            <li onClick={handleAllProduct}>VIEW ALL PRODUCTS</li>
+            <li onClick={handleTopProduct}>TOP PRODUCTS</li>
+            <li onClick={handleBestStack}>BEST SELLING STACK</li>
           </div>
           <div className="flex flex-1 items-center justify-end gap-3 md:w-[10%]">
             <div

@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
   const checkCart = cart?.find((cart) => product.id === cart.id);
 
   return (
-    <main className="product_wrap flex flex-col w-[48%] shadow-md md:w-[32%] overflow-hidden bg-white">
+    <main className="product_wrap flex flex-col w-[48%] shadow-md sm:w-[38%] lg:w-[32%] overflow-hidden bg-white">
       <div className="thumbnail"></div>
       <div className="thumbinfo">
         <div className="py-3 md:py-10 w-[90%] mx-auto text-center md:text-left">
@@ -58,13 +58,15 @@ const ProductItem = ({ product }) => {
       </div>
 
       <Link href={`product/${product.id}`} className="text-xs  sm:text-lg">
-        <div className="flex justify-center h-[140px] py-5 py-2 sm:h-[250px]  lg:h-[310px] md:py-2 border border-t-0 border-x-0 border-b-[#e8e8e8] w-[90%] mx-auto">
+        <div className="mb-[15px] sm:mb-[35px] flex justify-center h-[140px] py-2 sm:h-[250px]  lg:h-[310px] md:py-2 border border-t-0 border-x-0 border-b-[#e8e8e8] w-[90%] mx-auto">
           <Image
             src={product.img}
-            className="w-[83%] h-[120%] md:w-[400] md:h-[900]"
+            className={`max-w-[400px] w-[100px] h-[120%] sm:w-[350] sm:h-[900] ${
+              product.bottle1
+                ? "sm:w-[65%] max-w-[280px]"
+                : "sm:w-[100%] w-[100%]"
+            }`}
             alt="product"
-            width={300}
-            height={300}
           />
         </div>
       </Link>
