@@ -45,43 +45,6 @@ export default function Home() {
   };
   return (
     <div className="bg-[#f5f5f5] main_wrapper">
-      {/* <div className={`${issOpen ? "sideNav" : "noNav"}`}>
-        <div className="area">
-          <div>
-            <p>Menu</p>
-            <ul>
-              <li
-                onClick={() => {
-                  sorProduct("allProduct");
-                  handleClose();
-                }}
-              >
-                <span>VIEW ALL PRODUCTS</span>
-              </li>
-              <li
-                onClick={() => {
-                  sorProduct("topProduct");
-                  handleClose();
-                }}
-              >
-                <span>TOP PRODUCTS</span>
-              </li>
-              <li
-                onClick={() => {
-                  sorProduct("sellingStack");
-                  handleClose();
-                }}
-              >
-                <span> BEST SELLING STACK</span>
-              </li>
-              <li>
-                <span> MY ACCOUNT</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="exit" onClick={handleClose}></div>
-      </div> */}
       <Meta />
       <Nav />
       <Main />

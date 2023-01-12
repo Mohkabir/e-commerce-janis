@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import productContext from "../context/productContext";
+import Link from "next/link";
 
 export default function SideBar() {
   const { sorProduct, issOpen, setissOpen } = useContext(productContext);
 
   const handleClose = () => {
     setissOpen(!issOpen);
-    
   };
   return (
     <div className={`${issOpen ? "sideNav" : "noNav"}`}>
@@ -39,7 +39,13 @@ export default function SideBar() {
               <span> BEST SELLING STACK</span>
             </li>
             <li>
-              <span> MY ACCOUNT</span>
+              <span
+                onClick={() => {
+                  handleClose();
+                }}
+              >
+                <Link href="/account"> MY ACCOUNT</Link>
+              </span>
             </li>
           </ul>
         </div>

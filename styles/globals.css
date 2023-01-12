@@ -68,18 +68,35 @@ body {
   }
 }
 
+@keyframes navEffectBb {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
 .sideNav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: transparent;
   z-index: 300;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow-y: hidden;
+  animation-name: navEffectBb;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-delay: 300ms;
+
 }
 
 /* html {
@@ -93,7 +110,7 @@ body {
   animation-delay: 0s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 700ms;
+  animation-duration: 600ms;
   animation-iteration-count: 1;
   width: 0%;
   height: 100%;
@@ -240,6 +257,20 @@ section {
 }
 .contents_wrap p {
   margin: 20px 0;
+}
+.input_wrap {
+  margin-top: 20px;
+  text-align: left;
+}
+.input_wrap input {
+  display: block;
+  width: 100%;
+  border: 1px solid #909090;
+  padding: 7px 10px;
+}
+.input_wrap label {
+  font-size: 14px;
+  color: #909090;
 }
 
 .footer .list {
