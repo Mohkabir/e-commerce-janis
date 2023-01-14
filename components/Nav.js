@@ -7,11 +7,12 @@ import { convertString } from "./ProductItem";
 import Link from "next/link";
 import productContext from "../context/productContext";
 import logo from "../assets/img/Janis.png";
+import Router from "next/router";
 
 const Nav = () => {
   const [viewCart, setViewCart] = useState(false);
 
-  const { cart, setCart, sorProduct, issOpen,setissOpen } =
+  const { cart, setCart, sorProduct, issOpen, setissOpen } =
     useContext(productContext);
 
   const total = cart?.map((x) => x.price * x.qtn);
@@ -22,6 +23,11 @@ const Nav = () => {
   };
   const handleOpen = () => {
     setissOpen(!issOpen);
+  };
+
+  const handleSort = (val) => {
+    Router.push("/all-product");
+    sorProduct(val);
   };
   return (
     <nav
@@ -50,10 +56,15 @@ const Nav = () => {
           </div>
 
           <div className="nav_contents">
-            <li onClick={() => sorProduct("allProduct")}>VIEW ALL PRODUCTS</li>
-            <li onClick={() => sorProduct("topProduct")}>TOP PRODUCTS</li>
-            <li onClick={() => sorProduct("sellingStack")}>
+            <li onClick={() => handleSort("allProduct")}>VIEW ALL PRODUCTS</li>
+            <li onClick={() => handleSort("topProduct")}>TOP PRODUCTS</li>
+            <li onClick={() => handleSort("sellingStack")}>
               BEST SELLING STACK
+            </li>
+            <li>
+              <span>
+                <Link href="/account"> MY ACCOUNT</Link>
+              </span>
             </li>
           </div>
           <div className="flex flex-1 items-center justify-end gap-3 md:w-[10%]">
