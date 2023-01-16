@@ -15,7 +15,25 @@ const Nav = () => {
   const { cart, setCart, sorProduct, issOpen, setissOpen } =
     useContext(productContext);
 
-  const total = cart?.map((x) => x.price * x.qtn);
+  const cleanPrice = (price) => {
+    if (price) {
+      return Number(price.split(".")[0].split(",").join(""));
+    }
+  };
+  const total = () => {
+    if (cart.length > 1) {
+      let calc = 0;
+      cart.map((a) => {
+        calc += cleanPrice(a.selectedPrice);
+      });
+      var res = String(calc)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return res;
+    } else {
+      return cart[0]?.selectedPrice;
+    }
+  };
 
   const handleDelete = (id) => {
     const filterCart = cart.filter((x) => x.id !== id);
@@ -106,11 +124,9 @@ const Nav = () => {
 
                       <div className="flex-1 text-sm">
                         <p>{cart.title}</p>
-
                         <p>
-                          {`${convertString(cart.price)} * ${cart.qtn}`} {"="}{" "}
                           <b className="text-black">
-                            {`#${convertString(cart.price * cart.qtn)}`}
+                            {convertString(cart.price)}
                           </b>
                         </p>
                       </div>
@@ -125,13 +141,7 @@ const Nav = () => {
                   </div>
                 ))}
                 <h3 className="mr-3 text-right text-gray-400">
-                  Total :{" "}
-                  <b className="text-black ">
-                    #
-                    {total.length > 0
-                      ? convertString(total.reduce((a, b) => a + b))
-                      : 0}
-                  </b>
+                  Total : <b className="text-black ">₦{total() || 0}</b>
                 </h3>
               </>
             ) : (

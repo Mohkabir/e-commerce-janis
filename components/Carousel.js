@@ -34,6 +34,7 @@ export default function BootstrapCarousel() {
             <div>
               <Image
                 src={item.imageUrl}
+                className="w-[80%] md:w-[70%]"
                 alt="product"
                 width="70%"
                 layout="fill"
