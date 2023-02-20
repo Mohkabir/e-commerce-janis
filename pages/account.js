@@ -22,7 +22,6 @@ const Account = () => {
       setSuccess("");
       seterror("Wrong Credentials");
     } else {
-      console.log(formData, "formData");
       setSuccess(
         "Registration successful and under review. We will get back to you when approved"
       );
@@ -49,7 +48,7 @@ const Account = () => {
     <div>
       <Meta />
       <Nav />
-      <div className="w-[90%] md:w-[50%] my-10 mt-32 mx-auto max-w-[1200px] text-center">
+      <div className="w-[90%] md:w-[40%] my-10 mt-32 mx-auto max-w-[1200px] text-center">
         <h1 className="text-[25px]">{issLogin ? "Login" : "Create Account"}</h1>
         <p style={{ color: "red" }}>
           <small>{error}</small>
@@ -106,7 +105,11 @@ const Account = () => {
           </div>
           <button
             type="submit"
-            className="my-8 py-2 px-12 bg-[#006caa] text-white"
+            className="my-8 py-2 px-12 text-white"
+            style={{
+              // borderRadius: "0",
+              background: "rgba(16, 60, 192, 0.9)",
+            }}
           >
             {issLogin ? "Log in" : "Sign Up"}
           </button>

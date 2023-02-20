@@ -58,8 +58,6 @@ const Checkout = () => {
     e.preventDefault();
 
     router.push("/success");
-
-    console.log(cart, formData);
   };
 
   const router = useRouter();

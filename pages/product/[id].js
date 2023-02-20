@@ -53,14 +53,12 @@ const ProductItem = () => {
   const checkCart = cart?.find((cart) => product.id === cart.id);
 
   const selectChange = (e) => {
-    console.log(e.value);
     setProduct((prev) => ({
       ...prev,
       item: e.target.value,
     }));
   };
 
-  console.log(product, "product");
   if (product === undefined) {
     return <Spinner />;
   }

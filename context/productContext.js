@@ -12,7 +12,6 @@ export const ProductContextProvider = ({ children }) => {
   const [sortBy, setsortBy] = useState("");
   const [issOpen, setissOpen] = useState(false);
 
-  console.log(issOpen, "issOpen");
   const addToCart = (price, plan, img) => {
     const exist = cart?.find((x) => x.id === product.id);
     if (exist) {

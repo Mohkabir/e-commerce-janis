@@ -67,7 +67,7 @@ const Nav = () => {
               <Image
                 src={logo}
                 alt="product"
-                width={400}
+                width={300}
                 className="w-[120%]"
               />
             </Link>

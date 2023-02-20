@@ -3,7 +3,7 @@ import logo from "../assets/img/black logo.png";
 
 const Footer = () => {
   return (
-    <div className="footer bg-[#000] flex flex-col pt-[60px] pb-[30px] text-sm md:text-base">
+    <div className="footer bg-[#000] flex flex-col pt-[60px] pb-[30px] text-sm md:text-base ">
       <div className="list text-opacity-50">
         <div className="w-[100%] md:w-[40%] text-center">
           <Image
@@ -14,14 +14,14 @@ const Footer = () => {
             // height={300}
           />
         </div>
-        <div className="w-[50%] md:w-[20%] my-8">
+        <div className="w-[50%] md:w-[20%] my-8 md:my-0">
           <h3>Shop</h3>
           <p>All</p>
           <p>fat burning</p>
           <p>energy</p>
           <p>wellness</p>
         </div>
-        <div className="w-[50%] md:w-[20%] my-8">
+        <div className="w-[50%] md:w-[20%] my-8 md:my-0">
           <h3>Support</h3>
           <p>track my order</p>
           <p>shipping information</p>
@@ -29,7 +29,7 @@ const Footer = () => {
           <p>return policy</p>
           <p>contact us</p>
         </div>
-        <div className="w-[100%] md:w-[20%]">
+        <div className="w-[100%] md:w-[20%] md:my-0">
           <h3>Blog</h3>
           <p>Nutrition</p>
           <p>shipping information</p>
