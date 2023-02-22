@@ -901,7 +901,7 @@ export const staticProducts = [
   {
     id: 9,
     img: productImg2,
-    title: "ArjunaPlus",
+    title: "ARJUNAPLUS",
     description: "Blood Pressure Support Formula",
     author: "Muscleblaze",
     star: 4.5,

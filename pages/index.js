@@ -55,7 +55,7 @@ export default function Home() {
 
   const products = [
     {
-      name: "ArjunaPlus",
+      name: "ARJUNAPLUS",
       img: productImg2,
     },
     {
@@ -103,7 +103,7 @@ export default function Home() {
 
       <div>
         <h1 className="text-center mt-14">SHOP BY GOAL</h1>
-        <div className="w-[90%] md:w-[80%] flex m-auto justify-between md:gap-1 mb-4 flex-wrap">
+        <div className="w-[90%] md:w-[80%] flex m-auto justify-between md:gap-1 mb-4 flex-wrap mobile-none">
           {products.map((product, idx) => (
             <div
               key={idx}

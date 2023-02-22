@@ -4,7 +4,7 @@ import logo from "../assets/img/black logo.png";
 const Footer = () => {
   return (
     <div className="footer bg-[#000] flex flex-col pt-[60px] pb-[30px] text-sm md:text-base ">
-      <div className="list text-opacity-50">
+      {/* <div className="list text-opacity-50">
         <div className="w-[100%] md:w-[40%] text-center">
           <Image
             src={logo}
@@ -37,14 +37,13 @@ const Footer = () => {
           <p>return policy</p>
           <p>contact us</p>
         </div>
-      </div>
+      </div> */}
       <div className="mx-auto w-[90%]">
         <div className=" mx-auto">
           <div className="border border-white px-[20px] py-[20px] text-center">
             <p className="text-white capitalize">
-              These statement have not being evaluated by the food and drug
-              administration. These products are intented to diagoneed to treat,
-              cure, or prevent any disease.
+               Janis Nutrition is registered and wholly owned by
+              Yannis Marketing LTD Address: Ojodu Berger, Lagos State, 10001
             </p>
           </div>
         </div>
