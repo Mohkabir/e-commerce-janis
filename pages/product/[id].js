@@ -124,7 +124,6 @@ const ProductItem = () => {
                     addToCart(product.price, "1 month plan", product.img)
                   }
                   className={` text-white w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1 btn`}
-                  // style={{ borderRadius: "30px" }}
                   style={{
                     borderRadius: "30px",
                     background: !checkCart?.inCart ? "#103CC0" : "#777777",
@@ -307,8 +306,7 @@ const ProductItem = () => {
                   onClick={() =>
                     addToCart(product.price, "1 month plan", product.img)
                   }
-                  className={` w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1 btn`}
-                  // style={{ borderRadius: "30px" }}
+                  className={`text-white w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1 btn`}
                   style={{
                     borderRadius: "30px",
                     background: !checkCart?.inCart ? "#103CC0" : "#777777",
