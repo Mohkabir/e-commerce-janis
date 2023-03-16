@@ -15,7 +15,7 @@ export const itemJson = {
       {
         id: 2,
         title: "DIABETES 2-IN-1",
-        body: "Advanced Sugar Destroyer",
+        body: "Promote Healthy Blood Pressure",
         imageUrl: img2,
       },
       {

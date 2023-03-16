@@ -18,6 +18,7 @@ import icon1 from "../assets/img/home-icon-1.svg";
 import icon2 from "../assets/img/home-icon-2.svg";
 import icon3 from "../assets/img/home-icon-3.svg";
 import icon4 from "../assets/img/home-icon-4.svg";
+import Link from "next/link";
 
 export default function Home() {
   const [isError, setIsError] = useState(false);
@@ -57,22 +58,27 @@ export default function Home() {
     {
       name: "ARJUNAPLUS",
       img: productImg2,
+      url: "/product/9",
     },
     {
       name: "AJUNOLIVE",
       img: productImg3,
+      url: "/product/3",
     },
     {
       name: "CARDIO-VITAL",
       img: productImg4,
+      url: "/product/4",
     },
     {
       name: "ASWAGANDHA DS",
       img: productImg5,
+      url: "/product/1",
     },
     {
       name: "BCG-35",
       img: productImg6,
+      url: "/product/6",
     },
   ];
 
@@ -112,13 +118,15 @@ export default function Home() {
                 borderRadius: "10px",
               }}
             >
-              <Image
-                src={product.img}
-                alt="product"
-                width="30%"
-                layout="fill"
-                priority
-              />
+              <Link href={product.url}>
+                <Image
+                  src={product.img}
+                  alt="product"
+                  width="30%"
+                  layout="fill"
+                  priority
+                />
+              </Link>
               <h3 className="text-[16px] text-center mt-2">{product.name}</h3>
             </div>
           ))}

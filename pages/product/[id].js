@@ -123,12 +123,12 @@ const ProductItem = () => {
                   onClick={() =>
                     addToCart(product.price, "1 month plan", product.img)
                   }
-                  className={` text-white w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1  ${
-                    checkCart?.inCart
-                      ? "bg-gray-500 hover:bg-gray-600"
-                      : "bg-[#103CC0]"
-                  } btn`}
-                  style={{ borderRadius: "30px" }}
+                  className={` text-white w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1 btn`}
+                  // style={{ borderRadius: "30px" }}
+                  style={{
+                    borderRadius: "30px",
+                    background: !checkCart?.inCart ? "#103CC0" : "#777777",
+                  }}
                 >
                   <AiOutlineShoppingCart className="inline mb-1 mr-1" />
                   {!checkCart?.inCart ? "Add To Cart" : "change cart"}
@@ -245,12 +245,13 @@ const ProductItem = () => {
                           onClick={() =>
                             addToCart(item.price, item.plan, item.image)
                           }
-                          className={` text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1  ${
-                            checkCart?.inCart
-                              ? "bg-gray-500 hover:bg-gray-600"
-                              : "bg-[#103CC0]"
-                          } btn`}
-                          style={{ borderRadius: "30px" }}
+                          className={` text-white w-full p-3 rounded-lg font-bold text-md md:text-lg md:flex-1 btn`}
+                          style={{
+                            borderRadius: "30px",
+                            background: !checkCart?.inCart
+                              ? "#103CC0"
+                              : "#777777",
+                          }}
                         >
                           <AiOutlineShoppingCart className="inline mb-1 mr-1" />
                           {!checkCart?.inCart ? "Add To Cart" : "change cart"}
@@ -306,12 +307,12 @@ const ProductItem = () => {
                   onClick={() =>
                     addToCart(product.price, "1 month plan", product.img)
                   }
-                  className={` text-white w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1  ${
-                    checkCart?.inCart
-                      ? "bg-gray-500 hover:bg-gray-600"
-                      : "bg-[#103CC0]"
-                  } btn`}
-                  style={{ borderRadius: "30px" }}
+                  className={` w-full p-3 md:p-6 rounded-lg font-bold text-md md:text-lg md:flex-1 btn`}
+                  // style={{ borderRadius: "30px" }}
+                  style={{
+                    borderRadius: "30px",
+                    background: !checkCart?.inCart ? "#103CC0" : "#777777",
+                  }}
                 >
                   <AiOutlineShoppingCart className="inline mb-1 mr-1" />
                   {!checkCart?.inCart ? "Add To Cart" : "change cart"}
