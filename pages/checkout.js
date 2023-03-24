@@ -82,10 +82,8 @@ const Checkout = () => {
     publicKey: `${process.env.PAYSTACK_KEY}`,
   };
 
-  console.log(config, process.env.ENVIRONMENT, "config");
-
   const onClose = () => {
-    console.log(amount, "total()");
+    // console.log(amount, "total()");
   };
 
   const initializePayment = usePaystackPayment(config);
