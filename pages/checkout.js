@@ -71,17 +71,23 @@ const Checkout = () => {
     e.preventDefault();
     initializePayment(onSuccess, onClose);
   };
+
   const [amount, setAmount] = useState(
     cart.length && total().replace(",", "").replace(".", "")
   );
+
   const config = {
     email: formData.email,
     amount: cart.length > 1 ? Number(String(amount + "00")) : amount,
-    publicKey: "pk_test_d3601849b9917323791080dbce93f51362eee0fa",
+    publicKey: `${process.env.PAYSTACK_KEY}`,
   };
+
+  console.log(config, process.env.ENVIRONMENT, "config");
+
   const onClose = () => {
     console.log(amount, "total()");
   };
+
   const initializePayment = usePaystackPayment(config);
   return (
     <>
