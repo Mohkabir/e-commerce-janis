@@ -19,7 +19,7 @@ const Checkout = () => {
     phone: "",
   };
   const [formData, setformData] = useState(initialForm);
-  const [paymentMethod, setPaymentMethod] = useState("Paystack");
+  const [paymentMethod, setPaymentMethod] = useState("COD");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -194,7 +194,7 @@ const Checkout = () => {
                 </div>
                 <div
                   className="flex md:mr-8"
-                  onClick={() => setPaymentMethod("COD")}
+                  onClick={() => setPaymentMethod("Paystack")}
                   style={{ cursor: "pointer" }}
                 >
                   <input
