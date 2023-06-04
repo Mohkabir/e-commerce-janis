@@ -19,6 +19,7 @@ const Checkout = () => {
     phone: "",
   };
   const [formData, setformData] = useState(initialForm);
+  const [paymentMethod, setPaymentMethod] = useState("Paystack");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,7 +70,11 @@ const Checkout = () => {
 
   const checkout = (e) => {
     e.preventDefault();
-    initializePayment(onSuccess, onClose);
+    if (paymentMethod === "COD") {
+      router.push("/success");
+    } else {
+      initializePayment(onSuccess, onClose);
+    }
   };
 
   const [amount, setAmount] = useState(
@@ -168,8 +173,42 @@ const Checkout = () => {
                 />
               </div>
             </div>
-
-            <div className="flex my-5 font-medium justify-center text-center flex-col gap-5 ">
+            <div>
+              <div className="my-4">
+                <h2 className="text-md">Payment Method</h2>
+              </div>
+              <div className="md:flex ">
+                <div
+                  className="flex md:mr-8"
+                  onClick={() => setPaymentMethod("Paystack")}
+                  style={{ cursor: "pointer" }}
+                >
+                  <input
+                    className="mr-2"
+                    type="radio"
+                    value="Paystack"
+                    name="payment"
+                    checked={paymentMethod === "Paystack"}
+                  />
+                  <p>Pay with Card</p>
+                </div>
+                <div
+                  className="flex "
+                  onClick={() => setPaymentMethod("COD")}
+                  style={{ cursor: "pointer" }}
+                >
+                  <input
+                    className="mr-2"
+                    type="radio"
+                    value="COD"
+                    name="payment"
+                    checked={paymentMethod === "COD"}
+                  />
+                  <p> Cash on delivery</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex mb-10 md:my-5 font-medium justify-center text-center flex-col gap-5 ">
               <button type="submit" className="paystack-button">
                 Submit
               </button>

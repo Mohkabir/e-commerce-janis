@@ -7,6 +7,12 @@ export const itemJson = {
   items: {
     bootstrap: [
       {
+        id: 3,
+        title: "ARJUNA LASUNA",
+        body: "Healthy Heart Supplement",
+        imageUrl: img3,
+      },
+      {
         id: 1,
         title: "M-POWER ULTRA-ALPHA ENFORCER",
         body: "Maximum Sexual Performance",
@@ -17,12 +23,6 @@ export const itemJson = {
         title: "DIABETES 2-IN-1",
         body: "Promote Healthy Blood Pressure",
         imageUrl: img2,
-      },
-      {
-        id: 3,
-        title: "ARJUNA LASUNA",
-        body: "Healthy Heart Supplement",
-        imageUrl: img3,
       },
     ],
   },
