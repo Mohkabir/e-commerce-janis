@@ -179,20 +179,6 @@ const Checkout = () => {
               </div>
               <div className="md:flex ">
                 <div
-                  className="flex md:mr-8"
-                  onClick={() => setPaymentMethod("Paystack")}
-                  style={{ cursor: "pointer" }}
-                >
-                  <input
-                    className="mr-2"
-                    type="radio"
-                    value="Paystack"
-                    name="payment"
-                    checked={paymentMethod === "Paystack"}
-                  />
-                  <p>Pay with Card</p>
-                </div>
-                <div
                   className="flex "
                   onClick={() => setPaymentMethod("COD")}
                   style={{ cursor: "pointer" }}
@@ -205,6 +191,20 @@ const Checkout = () => {
                     checked={paymentMethod === "COD"}
                   />
                   <p> Cash on delivery</p>
+                </div>
+                <div
+                  className="flex md:mr-8"
+                  onClick={() => setPaymentMethod("COD")}
+                  style={{ cursor: "pointer" }}
+                >
+                  <input
+                    className="mr-2"
+                    type="radio"
+                    value="Paystack"
+                    name="payment"
+                    checked={paymentMethod === "Paystack"}
+                  />
+                  <p>Pay with Card</p>
                 </div>
               </div>
             </div>
